@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Virtual Lab: Gravitasi & Ruang-Waktu</title>
+    <!-- Font profesional -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Script untuk merubah kode \frac jadi rumus cantik -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Header Lab -->
+        <header>
+            <h1>Super Lab: Gravitasi & Ruang-Waktu</h1>
+            <p>Eksplorasi Hukum Newton & Distorsi Geometri Ruang-Waktu secara Interaktif</p>
+        </header>
+
+        <div class="main-layout">
+            <!-- Area Simulasi Utama -->
+            <div class="canvas-area">
+                <canvas id="gravityCanvas"></canvas>
+                
+                <!-- Overlay Informasi Gaya -->
+                <div id="forceDisplay" class="visible">
+                    Gaya Gravitasi: <span id="forceValue">0</span> N
+                </div>
+                
+                <div class="lab-tag">SIMULASI FISIKA REAL-TIME</div>
+            </div>
+
+            <!-- Panel Kontrol Samping -->
+            <aside class="controls">
+                <div class="control-card">
+                    <h3>⚙️ Parameter Eksperimen</h3>
+                    
+                    <div class="control-group">
+                        <label>Massa Benda 1 (m₁)</label>
+                        <input type="range" id="mass1" min="10" max="200" value="100">
+                        <span id="m1Value">100 kg</span>
+                    </div>
+
+                    <div class="control-group">
+                        <label>Massa Benda 2 (m₂)</label>
+                        <input type="range" id="mass2" min="10" max="200" value="60">
+                        <span id="m2Value">60 kg</span>
+                    </div>
+
+                    <div class="control-group">
+                        <label>Jarak Antar Pusat (r)</label>
+                        <input type="range" id="distance" min="150" max="500" value="300">
+                        <span id="distValue">300 m</span>
+                    </div>
+                </div>
+
+                <!-- Tombol Interaksi Tambahan -->
+                <div class="button-group">
+                    <button id="btnHide" class="btn-secondary">🙈 Sembunyikan Angka</button>
+                    <button id="btnLog" class="btn-success">📝 Simpan ke Tabel</button>
+                    <button id="btnReset" class="btn-primary">🔄 Reset Laboratorium</button>
+                </div>
+
+                <!-- Info Rumus (Sudah diperbaiki dengan MathJax) -->
+                <div class="formula-box">
+                    $$F = G \frac{m_1 m_2}{r^2}$$
+                </div>
+            </aside>
+        </div>
+
+        <!-- Bagian Tabel Data -->
+        <div class="table-section">
+            <h3>📊 Tabel Hasil Pengamatan</h3>
+            <div class="table-wrapper">
+                <table id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Massa 1 (kg)</th>
+                            <th>Massa 2 (kg)</th>
+                            <th>Jarak (m)</th>
+                            <th>Gaya Gravitasi (N)</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data muncul di sini -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
